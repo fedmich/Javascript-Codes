@@ -15,6 +15,13 @@ function table_to_js_array ( ){
 		jQuery( tr ).find('td').each(function( j , td ){
 			
 			var h = jQuery( td ).html();
+			
+			switch( h ){
+			case '&nbsp;':
+				//sometimes a TD can have NBSP, so consider it as blank
+				h = '';
+				break;
+			}
 			item.push( h );
 			
 		});
